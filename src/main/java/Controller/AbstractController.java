@@ -18,7 +18,7 @@ import java.util.List;
  */
 public abstract class AbstractController {
 
-    protected Database database; //The model
+    public Database database; //The model
     protected ViewChanger viewChanger; //the viewChanger - he class that responsible to display the fxml's
     protected AbstractView view;// The view assigned to the controller
 
@@ -138,11 +138,10 @@ public abstract class AbstractController {
 
     /**
      * Transitions to vacation details
-     * @param vacationID id of vacation to check
      */
-    public void CheckUser(String vacationID) {
-//        database.setCurrentVacation(GetVacation(vacationID));
-        viewChanger.detailsVacation();
+    public void CheckUser() {
+        database.checkingUser = true;
+        viewChanger.searchVacation();
         viewChanger.setupView(database);
     }
 

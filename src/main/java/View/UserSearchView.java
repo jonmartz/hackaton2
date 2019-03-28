@@ -3,6 +3,7 @@ package View;
 import Controller.AbstractController;
 import Controller.UserSearchController;
 import Model.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -36,6 +37,11 @@ public class UserSearchView extends AbstractView{
     public TextField enter_username_textfield;//The textfiled that will contain the username of the user that we want to search
     public Button search_user_button;//The "Search" button
     public ImageView pictureImageView; // profile picture
+    public Button messageButton;
+    public Text phone;
+    public Text phone_display;
+    public Text description;
+    public Text description_display;
 
     /**
      * Fills the user details in the user personalArea.fxml screen.
@@ -53,6 +59,11 @@ public class UserSearchView extends AbstractView{
         birthday_display.setVisible(true);
         city_display.setVisible(true);
         pictureImageView.setVisible(true);
+        phone.setVisible(true);
+        phone_display.setVisible(true);
+        description.setVisible(true);
+        description_display.setVisible(true);
+        messageButton.setVisible(true);
 
         //Set the textFields's text to be the user's data
         username_display.setText(user.username);
@@ -84,6 +95,7 @@ public class UserSearchView extends AbstractView{
         birthday_display.setVisible(false);
         city_display.setVisible(false);
         pictureImageView.setVisible(false);
+
 
         //Turn the text f the error message to visible
         error_message.setVisible(true);
@@ -122,6 +134,11 @@ public class UserSearchView extends AbstractView{
         birthday_display.setVisible(false);
         city_display.setVisible(false);
         error_message.setVisible(false);
+        phone.setVisible(false);
+        phone_display.setVisible(false);
+        description.setVisible(false);
+        description_display.setVisible(false);
+        messageButton.setVisible(false);
     }
 
     /**
@@ -130,5 +147,9 @@ public class UserSearchView extends AbstractView{
     public void searchForUser()
     {
         ((UserSearchController)this.getController()).searchForUser();
+    }
+
+    public void sendMessage() {
+        // todo
     }
 }

@@ -17,6 +17,12 @@ public class Database {
     private Vacation currentVacation; // vacation that is currently being viewed
     private Message currentMessage; // message that is currently being viewed
     private int connectionStack = 0; // used to not open more than one connection
+    public String courseID;
+    public String year;
+    public String semester;
+    public String checkedUserID;
+    public boolean checkingUser = false;
+
 
     public boolean requestButtonVisible = true; // for changing to vacation details view without the request button
 
@@ -537,7 +543,8 @@ public class Database {
                     + course_id + "' AND semester='" + semester+"' AND year='" + year
                     + "' AND available='T'");
             while (rs.next()) {
-                ans.add(rs.getString("username"));;
+                String username = rs.getString("username");
+                if (!username.equals(currentUser.username))ans.add(username);
             }
         } catch (SQLException e) {
             e.printStackTrace();

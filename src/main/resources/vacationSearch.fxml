@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -92,12 +93,12 @@
                                 <Text fill="#646464" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID:" />
                                 <Button fx:id="searchButton" disable="true" mnemonicParsing="false" onAction="#SearchVacation" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #28733e;" text="Search partners" textFill="WHITE" GridPane.rowIndex="8" />
                                 <Text fx:id="commentsText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments" GridPane.rowIndex="7" />
-                                <ChoiceBox fx:id="CourseIDChoiceBox" onAction="#CountryPicked" prefWidth="150.0" GridPane.rowIndex="1" />
+                                <ChoiceBox fx:id="CourseIDChoiceBox" onAction="#CheckEnableSearchButton" prefWidth="150.0" GridPane.rowIndex="1" />
                                 <Text fill="#646464" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester" GridPane.rowIndex="4" />
                                 <Button mnemonicParsing="false" onAction="#showAllVacations" prefHeight="25.0" prefWidth="174.0" text="Show all partners" textFill="#28733e" GridPane.rowIndex="12" />
                         <Text fill="#646464" strokeType="OUTSIDE" strokeWidth="0.0" text="Year:" GridPane.rowIndex="2" />
-                        <ChoiceBox fx:id="YearChoiceBox" onAction="#CountryPicked" prefWidth="150.0" GridPane.rowIndex="3" />
-                        <ChoiceBox fx:id="SemesterChoiceBox" onAction="#CountryPicked" prefWidth="150.0" GridPane.rowIndex="5" />
+                        <TextField fx:id="yearText" onKeyReleased="#CheckEnableSearchButton" promptText="integer" GridPane.rowIndex="3" />
+                        <TextField fx:id="semesterText" layoutX="15.0" layoutY="104.0" onKeyReleased="#CheckEnableSearchButton" promptText="integer" GridPane.rowIndex="5" />
                             </children>
                             <padding>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

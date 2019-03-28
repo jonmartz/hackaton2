@@ -19,20 +19,13 @@ public class VacationSearchView extends AbstractView {
 
     @FXML
     public Button searchButton;
-    public DatePicker fromDateDatePicker;
-    public DatePicker toDateDatePicker;
-    public TextField adultCountTextBox;
-    public TextField kidCountTextBox;
-    public TextField babyCountTextBox;
     public TableView searchResultsTableView;
     public TableColumn userColumn;
-    public TableColumn priceColumn;
     public TableColumn buttonColumn;
     public Text commentsText;
-    public int ticketCount;
-    public ChoiceBox YearChoiceBox;
-    public ChoiceBox SemesterChoiceBox;
     public ChoiceBox CourseIDChoiceBox;
+    public TextField yearText;
+    public TextField semesterText;
 
     /**
      * This function will initialize an instance of this class
@@ -72,8 +65,12 @@ public class VacationSearchView extends AbstractView {
                             setText(null);
                         } else {
                             button.setOnAction(event -> {
+                                getController().database.courseID = CourseIDChoiceBox.getValue().toString();
+                                getController().database.semester = semesterText.getText();
+                                getController().database.year = yearText.getText();
                                 VacationEntry vacationEntry = getTableView().getItems().get(getIndex());
-                                getController().CheckUser(vacationEntry.ID);
+                                getController().database.checkedUserID = vacationEntry.ID;
+                                getController().CheckUser();
 
                             });
                             setGraphic(button);
@@ -92,18 +89,6 @@ public class VacationSearchView extends AbstractView {
      */
 //    private void CheckUser(String vacationID) { this.getController().CheckUser(vacationID, true); }
 
-    /**
-     * Clear the to date picker text
-     */
-    public void ClearToDatePicker() {
-        this.toDateDatePicker.getEditor().clear();
-    }
-    /**
-     * This function will clear the text in the datePicker field
-     */
-    public void ClearFromDatePicker() {
-        this.fromDateDatePicker.getEditor().clear();
-    }
 
     /**
      * This function will set the comment text
@@ -111,39 +96,6 @@ public class VacationSearchView extends AbstractView {
      */
     public void setComments(String comment) {
         this.commentsText.setText(comment);
-    }
-
-    /**
-     * Checks that only numbers are set in ticket number fields
-     */
-    public void CheckTicketCountText() {
-
-        String adults = adultCountTextBox.getText();
-        String kids = kidCountTextBox.getText();
-        String babies = babyCountTextBox.getText();
-
-        // Replace chars if theyre not numbers
-        if (!adults.matches("\\d*") || !kids.matches("\\d*") || !babies.matches("\\d*")) {
-            adultCountTextBox.setText(adults.replaceAll("[^\\d]", ""));
-            kidCountTextBox.setText(kids.replaceAll("[^\\d]", ""));
-            babyCountTextBox.setText(babies.replaceAll("[^\\d]", ""));
-//            setComments("only numbers allowed in \"country\"");
-        }
-
-        adults = adultCountTextBox.getText();
-        kids = kidCountTextBox.getText();
-        babies = babyCountTextBox.getText();
-
-        ticketCount = 0;
-        try {
-            if (!adults.isEmpty()) ticketCount += Integer.parseInt(adultCountTextBox.getText());
-            if (!kids.isEmpty()) ticketCount += Integer.parseInt(kidCountTextBox.getText());
-            if (!babies.isEmpty()) ticketCount += Integer.parseInt(babyCountTextBox.getText());
-            ((VacationSearchController)getController()).CheckEnableSearchButton();
-
-        } catch (NumberFormatException e) {
-            setComments("Woah, too many tickets!!!");
-        }
     }
 
     /**
@@ -166,17 +118,14 @@ public class VacationSearchView extends AbstractView {
         List<String> partners = controller.GetRelevantPartners();
         ObservableList<VacationEntry> items = FXCollections.observableArrayList();
         for (String partner : partners){
-            items.add(new VacationEntry(partner, null,
+            items.add(new VacationEntry(null, partner,
                     null,null, null));
         }
         searchResultsTableView.setItems(items);
         searchResultsTableView.setVisible(true);
     }
 
-    /**
-     * Is called when a country is picked from the country choiceBox
-     */
-    public void CountryPicked() {
+    public void CheckEnableSearchButton() {
         ((VacationSearchController)getController()).CheckEnableSearchButton();
     }
 

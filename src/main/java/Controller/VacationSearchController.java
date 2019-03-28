@@ -64,8 +64,8 @@ public class VacationSearchController extends AbstractController {
     public void CheckEnableSearchButton() {
         VacationSearchView view = (VacationSearchView) this.view;
         view.setComments("");
-        if (view.YearChoiceBox.getValue() == null
-                || view.SemesterChoiceBox.getValue() == null
+        if (view.yearText.getText().isEmpty()
+                || view.semesterText.getText().isEmpty()
                 || view.CourseIDChoiceBox.getValue() == null) {
             view.searchButton.setDisable(true);
         } else {
@@ -81,8 +81,8 @@ public class VacationSearchController extends AbstractController {
 
         VacationSearchView view = (VacationSearchView)this.view;
         String relevantCourse = view.CourseIDChoiceBox.getValue().toString();
-        String relevantsemester = view.SemesterChoiceBox.getValue().toString();
-        String relevantYear = view.YearChoiceBox.getValue().toString();
+        String relevantsemester = view.semesterText.getText();
+        String relevantYear = view.yearText.getText();
         return learningUsers( relevantCourse, relevantsemester, relevantYear);
     }
 

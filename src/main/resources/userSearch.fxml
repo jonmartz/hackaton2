@@ -57,7 +57,7 @@
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="searchUser" disable="true" mnemonicParsing="false" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #f4f4f4" textFill="#28733e" text="Search User" GridPane.columnIndex="2">
+                                <Button fx:id="searchUser" disable="true" mnemonicParsing="false" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #f4f4f4" text="Search User" textFill="#28733e" GridPane.columnIndex="2">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -106,6 +106,11 @@
                         <Text fx:id="city_display" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <Button fx:id="search_user_button" mnemonicParsing="false" onAction="#searchForUser" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #28733e;" text="Search User" textFill="WHITE" GridPane.rowIndex="2" />
                   <ImageView fx:id="pictureImageView" fitHeight="163.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Button fx:id="messageButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #28733e;" text="Send message" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Text fx:id="phone" layoutX="10.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" GridPane.rowIndex="8" />
+                  <Text fx:id="phone_display" layoutX="128.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Text fx:id="description" layoutX="10.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" GridPane.rowIndex="9" />
+                  <Text fx:id="description_display" layoutX="128.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                     </children>
                <BorderPane.margin>
                   <Insets left="10.0" />
