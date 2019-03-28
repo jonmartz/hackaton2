@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="450.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PublishVacationView">
+    <children>
+        <BorderPane prefHeight="450.0" prefWidth="790.0">
+            <top>
+                <HBox prefHeight="37.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane prefHeight="37.0" prefWidth="790.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="vacationSearch" mnemonicParsing="false" onAction="#vacationSearch" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #28733e; -fx-border-color: BLACK;" text="Search Partners" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="vacationAdvertising" mnemonicParsing="false" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #f4f4f4" text="Add Courses" textFill="#28733e" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="signIn" mnemonicParsing="false" onAction="#signIn" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #28733e; -fx-border-color: BLACK;" text="Sign In" textFill="WHITE" GridPane.columnIndex="4">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="personalArea" disable="true" mnemonicParsing="false" onAction="#personalArea" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #28733e; -fx-border-color: BLACK;" text="Personal Area" textFill="WHITE" GridPane.columnIndex="3">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="searchUser" disable="true" mnemonicParsing="false" onAction="#searchUser" prefHeight="37.0" prefWidth="452.0" style="-fx-background-color: #28733e; -fx-border-color: BLACK;" text="Search User" textFill="WHITE" GridPane.columnIndex="2">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </top>
+            <center>
+                <GridPane prefHeight="437.0" prefWidth="780.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="198.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="612.0" minWidth="10.0" prefWidth="242.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.0" minWidth="10.0" prefWidth="372.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="25.0" prefWidth="129.0" text="Course" GridPane.rowIndex="1">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="addCourseButton" disable="true" layoutX="275.0" layoutY="479.0" mnemonicParsing="false" onAction="#publish" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #28733e;" text="Add Course" textFill="WHITE" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        <ComboBox fx:id="courseTextBox" onAction="#CheckEnablePublishButton" prefHeight="25.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="semesterTextField" onKeyReleased="#CheckEnablePublishButton" promptText="number" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label prefHeight="25.0" prefWidth="129.0" text="Year" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="yearTextField" onKeyReleased="#CheckEnablePublishButton" promptText="number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="25.0" prefWidth="129.0" text="Semester" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                    </padding>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
+</Pane>
