@@ -1,11 +1,14 @@
 package Controller;
 
 import View.PublishVacationView;
+import View.VacationSearchView;
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Controller for the vacation publish view
@@ -70,7 +73,8 @@ public class PublishController extends AbstractController {
 
     @Override
     protected void FillAllData() {
-
+        SortedSet<String> courses = new TreeSet<>(GetAllCourses());
+        ((PublishVacationView)view).courseTextBox.getItems().addAll(courses);
     }
 
     /**

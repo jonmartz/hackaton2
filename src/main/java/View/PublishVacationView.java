@@ -32,8 +32,8 @@ public class PublishVacationView extends AbstractView{
         publishController.setView(this);
 
         // Add observers to keep text legal
-        addTextListener(semesterTextField, "[A-Za-z]*", "[^A-Za-z]");
-        addTextListener(yearTextField, "[A-Za-z]*", "[^A-Za-z]");
+//        addTextListener(semesterTextField, "[A-Za-z]*", "[^A-Za-z]");
+//        addTextListener(yearTextField, "[A-Za-z]*", "[^A-Za-z]");
 
     }
 

@@ -385,7 +385,7 @@ public class Database {
             openConnection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("select * from courses");
-            if (rs.next()) {
+            while (rs.next()) {
                 ans.add(rs.getString("course_id") + "-" + rs.getString("name"));
             }
         } catch (SQLException e) {
