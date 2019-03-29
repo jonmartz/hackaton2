@@ -71,6 +71,8 @@ public class UserSearchView extends AbstractView{
         last_name_display.setText(user.lastName);
         birthday_display.setText(user.birthdate);
         city_display.setText(user.city);
+        phone_display.setText(user.phoneNumber);
+        description_display.setText(user.description);
         error_message.setVisible(false);
         Image image = getImage(user.pictureFilePath);
         if (image != null) pictureImageView.setImage(image);
@@ -95,7 +97,11 @@ public class UserSearchView extends AbstractView{
         birthday_display.setVisible(false);
         city_display.setVisible(false);
         pictureImageView.setVisible(false);
-
+        phone.setVisible(false);
+        phone_display.setVisible(false);
+        description.setVisible(false);
+        description_display.setVisible(false);
+        messageButton.setVisible(false);
 
         //Turn the text f the error message to visible
         error_message.setVisible(true);
@@ -150,6 +156,6 @@ public class UserSearchView extends AbstractView{
     }
 
     public void sendMessage() {
-        // todo
+        getController().RequestVacationScreen();
     }
 }

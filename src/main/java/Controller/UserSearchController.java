@@ -42,6 +42,10 @@ public class UserSearchController extends AbstractController {
 
     @Override
     protected void FillAllData() {
-
+        //get the username to check
+        if (database.checkingUser){
+            database.checkingUser = false;
+            ((UserSearchView)view).fillFieldsWithUserDetails(database.getUser(database.checkedUserID));
+        }
     }
 }

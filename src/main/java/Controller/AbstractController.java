@@ -141,19 +141,16 @@ public abstract class AbstractController {
      */
     public void CheckUser() {
         database.checkingUser = true;
-        viewChanger.searchVacation();
-        viewChanger.setupView(database);
+        searchUser();
     }
 
-//    /**
-//     * Transitions to vacation request screen
-//     * @param vacation vacation to check
-//     */
-//    public void RequestVacationScreen(Vacation vacation) {
-//        database.setCurrentVacation(vacation);
-//        viewChanger.requestVacation();
-//        viewChanger.setupView(database);
-//    }
+    /**
+     * Transitions to vacation request screen
+     */
+    public void RequestVacationScreen() {
+        viewChanger.requestVacation();
+        viewChanger.setupView(database);
+    }
 
     /**
      * Transitions to the vacation publishing screen

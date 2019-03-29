@@ -259,7 +259,6 @@ public class Database {
                     "'false'" + ")"; // not yet confirmed
             statement.executeUpdate(command);
 
-            // todo: maybe add this feature to avoid nulls
             // add trade data
 //            if (!offeredVacationID.isEmpty()){
 //                command = "insert into offeredVacations values(" +

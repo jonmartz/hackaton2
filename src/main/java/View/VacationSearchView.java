@@ -65,11 +65,12 @@ public class VacationSearchView extends AbstractView {
                             setText(null);
                         } else {
                             button.setOnAction(event -> {
-                                getController().database.courseID = CourseIDChoiceBox.getValue().toString();
+                                getController().database.courseID =
+                                        CourseIDChoiceBox.getValue().toString().split("-")[0];
                                 getController().database.semester = semesterText.getText();
                                 getController().database.year = yearText.getText();
                                 VacationEntry vacationEntry = getTableView().getItems().get(getIndex());
-                                getController().database.checkedUserID = vacationEntry.ID;
+                                getController().database.checkedUserID = vacationEntry.getCountry();
                                 getController().CheckUser();
 
                             });

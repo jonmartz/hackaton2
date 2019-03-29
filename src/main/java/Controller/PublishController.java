@@ -21,7 +21,10 @@ public class PublishController extends AbstractController {
     public void Publish() {
         PublishVacationView view = (PublishVacationView) this.view;
         // Get ticket count
-        database.addLearn(database.getCurrentUser().username,view.courseTextBox.getValue()+"",view.semesterTextField.getText(),"T",view.yearTextField.getText());
+        database.addLearn(database.getCurrentUser().username,
+                view.courseTextBox.getValue().toString().split("-")[0],
+                view.semesterTextField.getText(),
+                "T",view.yearTextField.getText());
         view.ShowPopUp("Course published successfully!");
     }
 

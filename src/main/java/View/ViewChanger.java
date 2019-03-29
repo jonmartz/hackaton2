@@ -196,7 +196,7 @@ public class ViewChanger {
             // Create new stage
             Stage secondaryStage = new Stage();
             this.secondaryStage = secondaryStage;
-            secondaryStage.setTitle("Request Vacation");
+            secondaryStage.setTitle("Send message");
             showSecondaryStage(root, secondaryStage);
         } catch (IOException e) {
             e.printStackTrace();
